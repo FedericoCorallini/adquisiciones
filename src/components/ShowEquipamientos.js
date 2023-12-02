@@ -7,13 +7,12 @@ import { useParams } from 'react-router-dom';
 import { MDBTable, MDBTableHead, MDBTableBody, MDBTabs, MDBTabsItem, MDBTabsLink} from 'mdb-react-ui-kit';
 import { Link } from 'react-router-dom';
 import { MDBDataTable } from 'mdbreact'; 
-import ShowEquipamientos from './ShowEquipamientos';
 
-const ShowAdquisiciones = () => {
+const ShowEquipamientos = () => {
     const {idFinanciamiento, motivoFinanciamiento, montoFinanciamiento} = useParams();
     const [selectedOption, setSelectedOption] = useState('servicios');
-    const urlAdquisiciones=`http://localhost:8080/${selectedOption}/financiamiento/${idFinanciamiento}`;
-    const url=`http://localhost:8080/${selectedOption}`
+    const urlAdquisiciones=`http://localhost:8080/equipamientos/financiamiento/${idFinanciamiento}`;
+    const url='http://localhost:8080/equipamientos'
     const [adquisiciones, setAdquisiciones]= useState([]);
     const [id, setId]= useState('');
     const [descripcion, setDescripcion]= useState('');
@@ -43,7 +42,7 @@ const ShowAdquisiciones = () => {
     if (value === fillActive) {
         return;
     }
-
+    
     setSelectedOption(value)
     setFillActive(value);
     };
@@ -582,4 +581,4 @@ const ShowAdquisiciones = () => {
   )
 }
 
-export default ShowAdquisiciones
+export default ShowEquipamientos
